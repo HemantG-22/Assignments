@@ -1,5 +1,8 @@
-/* Decleared one function with return type as (string) to check the loan eligibility, Inside the function, Checked user eligibility with nested ifelse conditional statments And then pass the input values which are decleared in function,
-Stored function return values in result veriable by calling the function
+/* Decleared one function with return type as (string) to check 
+the loan eligibility, Inside the function, Checked user eligibility 
+with nested ifelse conditional statments And then pass 
+the input values which are decleared in function,
+Stored function return value in result veriable by calling the function
 And Print the result veriable. */
 
 function checkLoanEligibility (

@@ -7,7 +7,7 @@ let orderplaced : boolean = true;
 console.log(`Is order Place ${orderplaced}`);
 
 //Person's phone number: "123-456-7890"
-let phonenumber : number = 9766688031;
+let phonenumber : string = "9766688031";
 console.log(`Phone number is ${phonenumber}`);
 
 //Amount of money in a customer's bank account: 1000.50
@@ -39,7 +39,7 @@ let currentyear : number = 2027;
 console.log(`Current year is ${currentyear}`);
 
 //Number of followers on a social media platform: 1,000,000
-let followers : number = 1000000;
+let followers : string = "1000000";
 console.log(`Social Media Followers count is ${followers}`);
 
 //Rating of a movie: 7.5
