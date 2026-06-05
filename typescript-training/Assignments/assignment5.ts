@@ -1,3 +1,10 @@
+/* Create one Array with employee details and another with show updated details
+In for loop with declear bonus, veriablepay & rewards veriables and inside 
+use if conditional statments  to check the conditions to get rewards
+Also declear 2 verivale hike & hikepercentage to save the vales
+Push Employee Name and hikepercentage in results array
+print all the values of results array in table format
+*/
 // Employee data
 const employees = [
     { name: "Alice Johnson", baseSalary: 75000, experience: 5.1, rating: 4.2 },
@@ -35,8 +42,7 @@ for (let i = 0; i < employees.length; i++) {
     }
 
     // Calculate hike
-    const hike =
-        (employees[i]!.baseSalary * variablePayPercentage / 100) +
+    const hike = (employees[i]!.baseSalary * variablePayPercentage / 100) +
         bonus +
         reward;
 
