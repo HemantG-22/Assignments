@@ -63,7 +63,9 @@ const products = page.locator("//a[text()='Products']");
 const locations = page.locator("//a[text()='Locations']");
 const adminPage = page.locator("//a[text()='Admin Page']");
 
-//CSS Left Menu
+/*CSS Left Menu (Class Selector + Descendant Selector + 
+Element Selector + :nth-child() Pseudo-Class Selector.)*/
+
 const solutionsnew = page.locator('ul.leftmenu li:nth-child(1) a');
 const aboutUsnew = page.locator('ul.leftmenu li:nth-child(2) a');
 const servicesnew = page.locator('ul.leftmenu li:nth-child(3) a');
