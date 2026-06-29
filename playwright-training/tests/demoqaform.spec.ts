@@ -24,7 +24,7 @@ test('DemoQA Practice Form', async ({ page }) => {
   await page.locator('#userNumber').fill('9876543210');
 
   // Date of Birth - 1 Feb 1991
-  await selectDOB(page, 1, 'February', '1991');
+  await selectDOB(page, '1', 'February', '1991');
   //await selectDOB(page, "1" , "February" , "1991");
 
   // Subjects
