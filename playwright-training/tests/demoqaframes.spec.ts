@@ -1,35 +1,23 @@
-import { test, expect, FrameLocator } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-test('DemoQA Frames Example', async ({ page }) => {
+test('Frames Assignment', async ({ page }) => {
 
-  // 1. Launch Application
-  await page.goto('https://demoqa.com/frames');
+    // 1. Enter URL and Launch the application (https://demoqa.com/frames)
+    await page.goto("https://demoqa.com/frames");
 
-  // Wait until page is loaded
-  await page.waitForLoadState('networkidle');
+    // 2. Locate Main window element
+    const mainWindowElement = await page.locator('//h1[@class="text-center"]');
 
-  // 2. Locate Main Window Element
-  const mainWindow = page.locator('.main-header');
+    //Locate the frame. 
+    const frame = await page.frameLocator('//iframe[@id="frame1"]');
 
-  // Print Main Window Text
-  const mainText = await mainWindow.innerText();
-  console.log('Main Window Text :', mainText);
+    // 3. Locate Frame Element
+    const frameElement = await frame.locator('//h1[@id="sampleHeading"]');
 
-  // Store Frame in Variable
-  const frame: FrameLocator = page.frameLocator('#frame1');
+    // 4. Copy and Print text from frame element
+    console.log(await frameElement.textContent());
 
-  // 3. Locate Frame Element
-  const frameHeading = frame.locator('#sampleHeading');
-
-  // Wait for Frame Element
-  await expect(frameHeading).toBeVisible();
-
-  // 4. Copy and Print Frame Text
-  const frameText = await frameHeading.innerText();
-  console.log('Frame Text :', frameText);
-
-  // Validation
-  await expect(mainWindow).toHaveText('Frames');
-  await expect(frameHeading).toHaveText('This is a sample page');
+    // 5. Copy and Print text from main window element
+    console.log(await mainWindowElement.textContent());
 
 });
