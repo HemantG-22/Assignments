@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+import {test, TestInfo} from '@playwright/test';
 import {LoginPageSteps} from '../../page-objects/page-steps/login-page-steps.js';
 import {HomePageSteps} from '../../page-objects/page-steps/home-page-steps.js';
 import {CookiesPageSteps} from '../../page-objects/page-steps/cookies-page-steps.js';
@@ -8,6 +8,7 @@ let loginPage: LoginPageSteps;
 let homePage: HomePageSteps;
 let cookiesPage: CookiesPageSteps;
 let testData: any;
+let testInfo: TestInfo;
 
 test.describe('Creatio CRM UI Tests', () => {
 
@@ -78,6 +79,49 @@ test.describe('Creatio CRM UI Tests', () => {
         await cookiesPage.clickOnShowDetailsLink();
         await cookiesPage.verifyExpandedViewOfCookiesPopUpIsDisplayed();
     });
+//Test Case 9: Verify login functionality with valid credentials.
+    test('Verify login functionality with valid credentials', async ({ }, testInfo: TestInfo) => {
+         testData = data[testInfo.title as keyof typeof data];
+         await loginPage.launchApplication();
+         await cookiesPage.verifyCookiesPopUpIsDisplayed();
+         await cookiesPage.verifySelectionButtonsDisplayedInCookiesPopUp();
+         await cookiesPage.clickOnSelectionButton('Allow All');
+         await cookiesPage.verifyCookiesPopUpIsDisappeared();
+         await loginPage.verifyLoginPageIsDisplayed();
+         await loginPage.enterCredentials(testData["username"], testData["password"]);
+         await loginPage.clickLoginButton();
+         await homePage.verifyHomePageDisplayed();
+     });
 
+     //Test Case 10: Verify login functionality with invalid credentials.
+     test('Verify login functionality with invalid credentials', async ({ }, testInfo: TestInfo) => {
+         testData = data[testInfo.title as keyof typeof data];
+         await loginPage.launchApplication();
+         await cookiesPage.verifyCookiesPopUpIsDisplayed();
+         await cookiesPage.verifySelectionButtonsDisplayedInCookiesPopUp();
+         await cookiesPage.clickOnSelectionButton('Allow All');
+         await cookiesPage.verifyCookiesPopUpIsDisappeared();
+         await loginPage.verifyLoginPageIsDisplayed();
+         await loginPage.enterCredentials(testData["username"], testData["password"]);
+         await loginPage.clickLoginButton();
+         await loginPage.verifyLoginErrorMessageIsDisplayed();
+     });
+
+    //Test Case 11: Verify logout functionality with valid credentials.
+    test('Verify logout functionality with valid credentials', async ({ }, testInfo: TestInfo) => {
+        testData = data[testInfo.title as keyof typeof data];
+        await loginPage.launchApplication();
+        await cookiesPage.verifyCookiesPopUpIsDisplayed();
+        await cookiesPage.verifySelectionButtonsDisplayedInCookiesPopUp();
+        await cookiesPage.clickOnSelectionButton('Allow All');
+        await cookiesPage.verifyCookiesPopUpIsDisappeared();
+        await loginPage.verifyLoginPageIsDisplayed();
+        await loginPage.enterCredentials(testData["username"], testData["password"]);
+        await loginPage.clickLoginButton();
+        await homePage.verifyHomePageDisplayed();
+        await homePage.verifyProfileIconAndClick();
+        await homePage.clickLogoutButton();
+        await loginPage.verifyLoginPageIsDisplayed();
+    });
 
 });

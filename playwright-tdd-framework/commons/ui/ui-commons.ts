@@ -97,12 +97,11 @@ async getAttribute(locator: string, attributename: string): Promise<string|null>
     return await element.getAttribute(attributename);
 }
 //Method the Verify element is Visible
-async isElementVisible(locator: string): Promise<boolean>{
-    const element = await this.element(locator);
-    await this.scrollToElement(locator);
-    await expect(element).toBeVisible();
-    return await element.isVisible();
-}
+ async isElementVisible(locator: string): Promise<void> {
+        const element = await this.element(locator);
+        await expect(element).toBeVisible({ timeout: 30000 });
+    }
+    
  //Method to verify element is disappeared 
     async isElementDisappeared(locator: string): Promise<boolean> {
         const element = await this.element(locator);

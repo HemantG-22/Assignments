@@ -15,5 +15,14 @@ export class HomePageSteps {
     async verifyHomePageDisplayed() {
         await this.web.isElementVisible(homePage.homePageHeader);
     }
+    // Method to verify profile icon and click on the profile icon 
+    async verifyProfileIconAndClick() {
+        await this.web.isElementVisible(homePage.profile);
+        await this.web.clickElement(homePage.profile);
+    }
 
+    // Method to click on the log out button.
+    async clickLogoutButton() {
+        await this.web.clickElement(homePage.logoutLink);
+    }
 }

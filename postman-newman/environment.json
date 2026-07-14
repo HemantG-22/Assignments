@@ -1,0 +1,28 @@
+{
+	"id": "c1b17036-dcbd-4156-9686-268a24dbed44",
+	"name": "Git_Prod_Environment",
+	"values": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "OWNER",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-07-14T18:53:16.384Z",
+	"_postman_exported_using": "Postman/12.19.0"
+}

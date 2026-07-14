@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:report": "npx playwright show-report",
+    "ui":"npx playwright test tests/ui/ui-tests.spec.ts --project=chromium  --headed",
+    "failed":"npx playwright test --last-failed  --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,7 +25,6 @@
     "pdf-parse": "^2.4.5",
     "pdf-parse-new": "^2.1.0",
     "pg": "^8.22.0",
-    "typescript": "^6.0.3",
     "xlsx": "^0.18.5"
   }
 }
